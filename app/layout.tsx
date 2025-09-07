@@ -1,4 +1,4 @@
-import "./globals.css";  // <- importa Tailwind
+import "./globals.css";
 
 export const metadata = {
   title: "Casa Solena",
@@ -12,4 +12,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
