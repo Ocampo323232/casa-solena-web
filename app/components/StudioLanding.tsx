@@ -6,7 +6,7 @@ import {
   Clock3, ChevronRight, Quote, Star, ShieldCheck,
   Instagram, Facebook, Mail, Languages, MessageCircle
 } from "lucide-react";
-
+import Image from "next/image";
 // —— CONFIGURABLE BRAND TOKENS ——
 const BRAND = {
   name: "Casa Solena",
