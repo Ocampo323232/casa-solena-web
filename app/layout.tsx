@@ -1,7 +1,10 @@
+import "./globals.css";  // <- importa Tailwind
+
 export const metadata = {
   title: "Casa Solena",
-  description: "Pilates & Barre en CDMX – Reserva tu clase"
+  description: "Pilates & Barre en CDMX – Reserva tu clase",
 };
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
@@ -9,3 +12,4 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
+
