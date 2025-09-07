@@ -149,9 +149,20 @@ export default function StudioLanding() {
                 <ShieldCheck className="w-4 h-4" style={{color: BRAND.accent}}/>
                 <span>Clases seguras · Formato boutique</span>
               </div>
-              <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-                Pilates y Barre <span style={{color: BRAND.accent}}>para sentirte increíble</span>
-              </h1>
+              <section className="flex flex-col items-center text-center py-12">
+  <Image
+    src="/Logo-Casa-Solena.jpg"
+    alt="Casa Solena"
+    width={420}     // tamaño del logo
+    height={200}
+    className="w-96 h-auto mb-6"  // puedes subir a w-[500px] si lo quieres aún más grande
+    priority
+  />
+  <h1 className="text-4xl font-bold text-[#5e544a]">
+    Pilates y Barre{" "}
+    <span className="text-[#B39D7A]">para sentirte increíble</span>
+  </h1>
+</section>
               <p className="mt-4 text-lg text-gray-600">Sesiones pequeñas, atención real. Fuerza, postura y bienestar en un mismo lugar.</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a href={BRAND.booking} target="_blank" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
