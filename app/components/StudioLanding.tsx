@@ -24,10 +24,10 @@ const COPY = {
   es: {
     nav: ["Clases", "Horarios", "Precios", "Instructores", "Ubicación", "Preguntas"],
     heroTitle: <>Pilates y Barre <span className="text-[#B39D7A]">para sentirte increíble</span></>,
-    heroSubtitle: "Sesiones pequeñas, atención real. Fuerza, postura y bienestar en un mismo lugar.",
+    heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
     ctaBook: "Reservar clase",
     ctaWhats: "WhatsApp",
-    trust: ["Grupos reducidos (máx. 12)", "Instructores certificados", "Plan seguro para principiantes"],
+    trust: ["Espacios Amplios", "Instructores certificados", "Un espacio seguro"],
     classesTitle: "Nuestras clases",
     scheduleTitle: "Horarios",
     pricesTitle: "Precios y membresías",
