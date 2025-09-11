@@ -150,14 +150,14 @@ export default function StudioLanding() {
                 <span>Clases seguras · Formato boutique</span>
               </div>
               <section className="flex flex-col items-center text-center py-12">
- <Image
-  src="/logo-casa-solena.jpg"
+ import Image from "next/image";
+<Image
+  src="/logocasasolena2.jpg"
   alt="Casa Solena"
-  width={500}     // ajusta el tamaño
-  height={250}    // ajusta el tamaño
-  className="mx-auto mb-6"
+  width={600}   // ajusta el tamaño
+  height={300}  // ajusta el tamaño
+  className="w-auto h-auto mb-6"
   priority
-  unoptimized
 />
   <h1 className="text-4xl font-bold text-[#5e544a]">
     Pilates y Barre{" "}
