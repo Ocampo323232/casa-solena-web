@@ -23,7 +23,7 @@ const BRAND = {
 const COPY = {
   es: {
     nav: ["Clases", "Horarios", "Precios", "Instructores", "Ubicación", "Preguntas"],
-    heroTitle: <>Pilates y Barre <span className="text-[#B39D7A]">para sentirte increíble</span></>,
+    heroTitle: <>Pilates y Barre <span className="text-[#B39D7A]">,
     heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
     ctaBook: "Reservar clase",
     ctaWhats: "WhatsApp",
@@ -163,7 +163,7 @@ export default function StudioLanding() {
     <span className="text-[#B39D7A]">para sentirte increíble</span>
   </h1>
 </section>
-              <p className="mt-4 text-lg text-gray-600">Sesiones pequeñas, atención real. Fuerza, postura y bienestar en un mismo lugar.</p>
+              <p className="mt-4 text-lg text-gray-600">Fuerza, postura y bienestar en un mismo lugar.</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
                 <a href={BRAND.booking} target="_blank" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
                   <Clock3 className="w-5 h-5"/>Reservar clase
@@ -202,10 +202,8 @@ export default function StudioLanding() {
           <h2 className="text-3xl font-bold mb-8">Nuestras clases</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              {title:"Reformer Pilates", desc:"Fuerza y control en Reformer.", icon:Dumbbell},
               {title:"Mat Pilates", desc:"Core y postura en mat.", icon:Leaf},
               {title:"Barre", desc:"Cardio de bajo impacto con foco en tren inferior.", icon:HeartPulse},
-              {title:"Prenatal / Postnatal", desc:"Sesiones seguras guiadas por especialistas.", icon:ShieldCheck}
             ].map((c,i)=>(
               <div key={i} className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
                 <c.icon className="w-8 h-8" style={{color: BRAND.accent}}/>
