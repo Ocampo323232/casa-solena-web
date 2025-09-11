@@ -151,7 +151,7 @@ export default function StudioLanding() {
               </div>
               <section className="flex flex-col items-center text-center py-12">
 <Image
-  src="/casasolenapng.png"
+  src="/casasolenapng2.png"
   alt="Casa Solena"
   width={600}   // ajusta el tamaño
   height={300}  // ajusta el tamaño
