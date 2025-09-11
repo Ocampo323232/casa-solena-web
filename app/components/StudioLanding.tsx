@@ -23,7 +23,7 @@ const BRAND = {
 const COPY = {
   es: {
     nav: ["Clases", "Horarios", "Precios", "Instructores", "Ubicación", "Preguntas"],
-    heroTitle: <>Pilates y Barre <span className="text-[#B39D7A]">,
+    heroTitle: "Pilates y Barre Studio",
     heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
     ctaBook: "Reservar clase",
     ctaWhats: "WhatsApp",
@@ -158,10 +158,9 @@ export default function StudioLanding() {
   className="w-auto h-auto mb-6"
   priority
 />
-  <h1 className="text-4xl font-bold text-[#5e544a]">
-    Pilates y Barre{" "}
-    <span className="text-[#B39D7A]">para sentirte increíble</span>
-  </h1>
+ <h1 className="text-4xl font-bold text-[#5e544a]">
+  {t.heroTitle}
+</h1>
 </section>
               <p className="mt-4 text-lg text-gray-600">Fuerza, postura y bienestar en un mismo lugar.</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
