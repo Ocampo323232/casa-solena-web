@@ -150,7 +150,6 @@ export default function StudioLanding() {
                 <span>Clases seguras · Formato boutique</span>
               </div>
               <section className="flex flex-col items-center text-center py-12">
- import Image from "next/image";
 <Image
   src="/logocasasolena2.jpg"
   alt="Casa Solena"
