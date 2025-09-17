@@ -210,8 +210,6 @@ export default function StudioLanding() {
     fill
     priority
     className="object-cover"
-    // En lo que subes tu imagen, puedes dejar:
-    // src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop"
   />
   <div className="absolute inset-0 bg-black/35" />
   <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center">
