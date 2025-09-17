@@ -43,9 +43,12 @@ const COPY = {
       { q: "¿Cómo reservo o cancelo?", a: "Reserva desde el sistema en línea o por WhatsApp. Puedes cancelar hasta 8 h antes sin penalidad." }
     ],
     pricePlans: [
-      { name: "Clase suelta", price: "$250", features: ["1 acceso", "Válido 7 días"], highlight: false },
-      { name: "Paquete 8 clases", price: "$1,600", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
-      { name: "Ilimitadas Mensual", price: "$2,900", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
+      { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
+      { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
+      { name: "Paquete 4 clases", price: "$1,040", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+      { name: "Paquete 8 clases", price: "$1,960", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+      { name: "Paquete 12 clases", price: "$2,700", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+      { name: "Ilimitadas Mensual", price: "$3,200", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
     ],
     instructors: [
       { name: "Melissa A.", role: "Lead Instructor – Reformer / Barre", bio: "10+ años enseñando movimiento consciente.", img: "https://images.unsplash.com/photo-1544716278-e513176f20b5" },
