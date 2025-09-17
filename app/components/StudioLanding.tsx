@@ -202,51 +202,95 @@ export default function StudioLanding() {
     </div>
   )}
 </header>
-        {/* —— HERO —— */}
-        <Section id="hero">
-          <div className="grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 bg-white rounded-full border px-3 py-1 text-xs">
-                <ShieldCheck className="w-4 h-4" style={{color: BRAND.accent}}/>
-                <span>Clases seguras · Formato boutique</span>
-              </div>
-              <section className="flex flex-col items-center text-center py-12">
-<Image
-  src="/casasolenapng2.png"
-  alt="Casa Solena"
-  width={600}   // ajusta el tamaño
-  height={300}  // ajusta el tamaño
-  className="w-auto h-auto mb-6"
-  priority
-/>
- <h1 className="text-4xl font-bold text-[#5e544a]">
-  {t.heroTitle}
-</h1>
-</section>
-              <p className="mt-4 text-lg text-gray-600">Fuerza, postura y bienestar en un mismo lugar.</p>
-              <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a href="/book" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
-  <Clock3 className="w-5 h-5"/>Reservar clase
-</a>
-                <a href={BRAND.whatsapp} target="_blank" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50">
-                  <Phone className="w-5 h-5"/>WhatsApp
-                </a>
-              </div>
-              <div className="mt-6 flex flex-wrap gap-2">
-                {t.trust.map((v, i) => (<Badge key={i}>{v}</Badge>))}
-              </div>
-              <div className="mt-8 flex items-center gap-6 text-sm text-gray-600">
-                <div className="flex items-center gap-2"><Star className="w-4 h-4" style={{color: BRAND.accent}}/> 4.9/5 rating</div>
-                <div className="flex items-center gap-2"><MapPin className="w-4 h-4" style={{color: BRAND.accent}}/> {BRAND.address}</div>
-              </div>
-            </div>
-            <div className="relative">
-              <div className="rounded-3xl overflow-hidden shadow-xl ring-1" style={{boxShadow: "#E1DACA 0 10px 30px -10px", borderColor: "#E1DACA"}}>
-                <img src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop" alt="Clase de Pilates" className="w-full h-full object-cover"/>
-              </div>
-            </div>
-          </div>
-        </Section>
+ {/* HERO MÓVIL (Moon-style) */}
+<div className="lg:hidden relative min-h-[80vh]">
+  <Image
+    src="/heromobile.jpg"
+    alt="Casa Solena"
+    fill
+    priority
+    className="object-cover"
+    // En lo que subes tu imagen, puedes dejar:
+    // src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop"
+  />
+  <div className="absolute inset-0 bg-black/35" />
+  <div className="absolute inset-0 flex flex-col items-center justify-center gap-5 px-6 text-center">
+    <h1 className="text-white text-[28px] leading-tight font-light italic tracking-wide">
+      {t.heroTitle}
+    </h1>
+
+    <div className="flex flex-col gap-3 w-full max-w-xs">
+      <a
+        href="/book"
+        className="rounded-full bg-white/90 text-gray-900 py-3 font-semibold hover:bg-white"
+      >
+        Book a class
+      </a>
+      <a
+        href="#sec-2"
+        className="rounded-full bg-white/70 text-gray-900 py-3 font-medium hover:bg-white/85"
+      >
+        Memberships
+      </a>
+    </div>
+  </div>
+</div>
+
+{/* HERO DESKTOP (tu layout original) */}
+<div className="hidden lg:block">
+  <Section id="hero">
+    <div className="grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div className="inline-flex items-center gap-2 bg-white rounded-full border px-3 py-1 text-xs">
+          <ShieldCheck className="w-4 h-4" style={{ color: BRAND.accent }} />
+          <span>Clases seguras · Formato boutique</span>
+        </div>
+
+        <section className="flex flex-col items-center text-center py-12">
+          <Image
+            src="/casasolenapng2.png"
+            alt="Casa Solena"
+            width={600}
+            height={300}
+            className="w-auto h-auto mb-6"
+            priority
+          />
+          <h1 className="text-4xl font-bold text-[#5e544a]">{t.heroTitle}</h1>
+        </section>
+
+        <p className="mt-4 text-lg text-gray-600">Fuerza, postura y bienestar en un mismo lugar.</p>
+
+        <div className="mt-6 flex flex-wrap items-center gap-3">
+          <a href="/book" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
+            <Clock3 className="w-5 h-5" /> Reservar clase
+          </a>
+          <a href={BRAND.whatsapp} target="_blank" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50">
+            <Phone className="w-5 h-5" /> WhatsApp
+          </a>
+        </div>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {t.trust.map((v, i) => (<span key={i} className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-white/70 backdrop-blur border-gray-200">{v}</span>))}
+        </div>
+
+        <div className="mt-8 flex items-center gap-6 text-sm text-gray-600">
+          <div className="flex items-center gap-2"><Star className="w-4 h-4" style={{ color: BRAND.accent }} /> 4.9/5 rating</div>
+          <div className="flex items-center gap-2"><MapPin className="w-4 h-4" style={{ color: BRAND.accent }} /> {BRAND.address}</div>
+        </div>
+      </div>
+
+      <div className="relative">
+        <div className="rounded-3xl overflow-hidden shadow-xl ring-1" style={{ boxShadow: "#E1DACA 0 10px 30px -10px", borderColor: "#E1DACA" }}>
+          <img
+            src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1600&auto=format&fit=crop"
+            alt="Clase de Pilates"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    </div>
+  </Section>
+</div>
         {/* —— CLASES —— */}
         <Section id="sec-0">
           <h2 className="text-3xl font-bold mb-8">Nuestras clases</h2>
