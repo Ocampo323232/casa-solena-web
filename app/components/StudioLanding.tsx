@@ -45,10 +45,11 @@ const COPY = {
     pricePlans: [
       { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
       { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
-      { name: "Paquete 4 clases", price: "$1,040", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
-      { name: "Paquete 8 clases", price: "$1,960", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
-      { name: "Paquete 12 clases", price: "$2,700", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
-      { name: "Ilimitadas Mensual", price: "$3,200", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
+      { name: "Paquete 4 clases", price: "$1,039", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
+      { name: "Paquete 8 clases", price: "$1,899", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+      { name: "Paquete 12 clases", price: "$2,699", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
+      { name: "Mensualidad", price: "$3,199", features: ["1 Check in al día", "Prioridad en reservas"], highlight: false },
+      { name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
     ],
     instructors: [
       { name: "Melissa A.", role: "Lead Instructor – Reformer / Barre", bio: "10+ años enseñando movimiento consciente.", img: "https://images.unsplash.com/photo-1544716278-e513176f20b5" },
