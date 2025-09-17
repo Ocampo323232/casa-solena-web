@@ -232,7 +232,7 @@ export default function StudioLanding() {
  {/* HERO MÓVIL (Moon-style) */}
 <div className="lg:hidden relative min-h-[80vh]">
   <Image
-    src="/heromobile.jpg"
+    src="/heromobile.png"
     alt="Casa Solena"
     fill
     priority
