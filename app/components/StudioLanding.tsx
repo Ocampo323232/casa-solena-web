@@ -4,7 +4,7 @@ import { MotionConfig } from "framer-motion";
 import {
   Dumbbell, HeartPulse, Leaf, MapPin, Phone,
   Clock3, ChevronRight, Quote, Star, ShieldCheck,
-  Instagram, Facebook, Mail, Languages, MessageCircle
+  Instagram, Facebook, Mail, Languages, MessageCircle,Menu,X
 } from "lucide-react";
 import Image from "next/image";
 // —— CONFIGURABLE BRAND TOKENS ——
@@ -73,8 +73,9 @@ function PlanCard({ name, price, features, highlight, ctaText, href }: any) {
       </div>
       <p className="text-3xl font-bold mt-2">{price}<span className="text-sm font-normal text-gray-500"> MXN</span></p>
       <ul className="space-y-2 mt-4 text-sm">{features.map((f: string, i: number) => (<li key={i} className="flex gap-2"><ChevronRight className="w-4 h-4"/>{f}</li>))}</ul>
-      <a href={href} target="_blank" className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95 transition">{ctaText}</a>
-    </div>
+      <a href="/book" className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95 transition">
+  {ctaText}
+</a>
   );
 }
 function InstructorCard({ img, name, role, bio }: any) {
@@ -108,6 +109,7 @@ function StickyWhatsApp({ label }: { label: string }) {
 
 export default function StudioLanding() {
   const [lang] = useState<'es' | 'en'>('es');
+    const [menuOpen, setMenuOpen] = useState(false);
   const t = useMemo(() => COPY[lang as 'es'], [lang]);
 
   // Cargar script de Fitune para auto-altura del iframe
@@ -129,18 +131,77 @@ export default function StudioLanding() {
       <div className="min-h-screen text-gray-900 bg-gradient-to-b from-[#F5F5EB] via-white to-white">
         {/* —— NAVBAR —— */}
         <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" className="font-bold tracking-tight text-lg">{BRAND.name}</a>
-            <nav className="hidden md:flex items-center gap-6">
-              {t.nav.map((item, i) => (<a key={i} href={`#sec-${i}`} className="text-sm hover:text-[#A48363]">{item}</a>))}
-              <a href="#reservas" className="text-sm hover:text-[#A48363]">Reservas</a>
-            </nav>
-            <div className="flex items-center gap-2">
-              <a href={BRAND.booking} target="_blank" className="hidden sm:inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-4 py-2 hover:brightness-95"><Clock3 className="w-4 h-4"/>Reservar</a>
-            </div>
-          </div>
-        </header>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    {/* Logo / Nombre */}
+    <a href="/" className="font-bold tracking-tight text-lg">{BRAND.name}</a>
 
+    {/* Nav desktop */}
+    <nav className="hidden md:flex items-center gap-6">
+      {t.nav.map((item, i) => (
+        <a key={i} href={`#sec-${i}`} className="text-sm hover:text-[#A48363]">{item}</a>
+      ))}
+      <a href="#reservas" className="text-sm hover:text-[#A48363]">Reservas</a>
+    </nav>
+
+    {/* Acciones (desktop) */}
+    <div className="hidden sm:flex items-center gap-2">
+      <a href="/book" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-4 py-2 hover:brightness-95">
+        <Clock3 className="w-4 h-4" /> Reservar
+      </a>
+    </div>
+
+    {/* Botón hamburger (mobile) */}
+    <button
+      className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
+      aria-label="Abrir menú"
+      onClick={() => setMenuOpen(true)}
+    >
+      <Menu className="w-6 h-6" />
+    </button>
+  </div>
+
+  {/* Panel móvil */}
+  {menuOpen && (
+    <div className="md:hidden fixed inset-0 z-50 bg-white/95 backdrop-blur">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b">
+        <span className="font-bold">{BRAND.name}</span>
+        <button
+          className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
+          aria-label="Cerrar menú"
+          onClick={() => setMenuOpen(false)}
+        >
+          <X className="w-6 h-6" />
+        </button>
+      </div>
+
+      <div className="px-6 py-6 space-y-3">
+        {t.nav.map((item, i) => (
+          <a
+            key={i}
+            href={`#sec-${i}`}
+            className="block text-lg py-2"
+            onClick={() => setMenuOpen(false)}
+          >
+            {item}
+          </a>
+        ))}
+        <a href="#reservas" className="block text-lg py-2" onClick={() => setMenuOpen(false)}>
+          Reservas
+        </a>
+
+        <div className="pt-4">
+          <a
+            href="/book"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95"
+            onClick={() => setMenuOpen(false)}
+          >
+            Book a class
+          </a>
+        </div>
+      </div>
+    </div>
+  )}
+</header>
         {/* —— HERO —— */}
         <Section id="hero">
           <div className="grid lg:grid-cols-2 gap-10 items-center">
@@ -164,9 +225,9 @@ export default function StudioLanding() {
 </section>
               <p className="mt-4 text-lg text-gray-600">Fuerza, postura y bienestar en un mismo lugar.</p>
               <div className="mt-6 flex flex-wrap items-center gap-3">
-                <a href={BRAND.booking} target="_blank" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
-                  <Clock3 className="w-5 h-5"/>Reservar clase
-                </a>
+                <a href="/book" className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95">
+  <Clock3 className="w-5 h-5"/>Reservar clase
+</a>
                 <a href={BRAND.whatsapp} target="_blank" className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50">
                   <Phone className="w-5 h-5"/>WhatsApp
                 </a>
@@ -186,16 +247,6 @@ export default function StudioLanding() {
             </div>
           </div>
         </Section>
-
-        {/* —— RESERVAS (Fitune) —— */}
-        <Section id="reservas">
-          <h2 className="text-3xl font-bold mb-8">Reserva tu clase</h2>
-          <div className="rounded-2xl overflow-hidden border bg-white">
-            <iframe id="fituneWebsiteIframeEmbed" src="https://www.myfitune.io/embed/casa-solena/activities" height="900" width="100%" frameBorder="0" title="Reservas Casa Solena"></iframe>
-          </div>
-          <p className="mt-4 text-sm text-gray-500">Capacidad por clase: 12 personas · Duración: 60 minutos</p>
-        </Section>
-
         {/* —— CLASES —— */}
         <Section id="sec-0">
           <h2 className="text-3xl font-bold mb-8">Nuestras clases</h2>
@@ -230,7 +281,7 @@ export default function StudioLanding() {
         <Section id="sec-2">
           <h2 className="text-3xl font-bold mb-8">Precios y membresías</h2>
           <div className="grid md:grid-cols-3 gap-6">
-            {COPY.es.pricePlans.map((p, i) => (<PlanCard key={i} {...p} ctaText={COPY.es.ctaBook} href={BRAND.booking}/>))}
+            {COPY.es.pricePlans.map((p, i) => (<PlanCard key={i} {...p} ctaText={COPY.es.ctaBook} href="/book"/>))}
           </div>
           <p className="text-sm text-gray-500 mt-4">*Precios de ejemplo. Ajusta a tu tabla real.</p>
         </Section>
@@ -304,7 +355,7 @@ export default function StudioLanding() {
             <div>{COPY.es.footer}</div>
             <div className="flex items-center gap-4">
               <a href="#hero" className="hover:text-[#A48363]">Inicio</a>
-              <a href={BRAND.booking} target="_blank" className="hover:text-[#A48363]">Reservar</a>
+              <a href="/book" target="_blank" className="hover:text-[#A48363]">Reservar</a>
               <a href={BRAND.whatsapp} target="_blank" className="hover:text-[#A48363]">WhatsApp</a>
             </div>
           </div>
