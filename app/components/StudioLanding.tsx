@@ -66,16 +66,43 @@ function Badge({ children }: { children: React.ReactNode }) {
 }
 function PlanCard({ name, price, features, highlight, ctaText, href }: any) {
   return (
-    <div className={`rounded-2xl border p-6 shadow-sm bg-white ${highlight ? "border-[#B39D7A] shadow-[#E1DACA] ring-1 ring-[#E1DACA]" : "border-gray-200"}`}>
+    <div
+      className={`rounded-2xl border p-6 shadow-sm bg-white ${
+        highlight
+          ? "border-[#B39D7A] shadow-[#E1DACA] ring-1 ring-[#E1DACA]"
+          : "border-gray-200"
+      }`}
+    >
       <div className="flex items-baseline justify-between">
         <h3 className="text-xl font-semibold">{name}</h3>
-        {highlight && (<span className="text-xs bg-[#EFD7DA] text-[#8a5f49] px-2 py-1 rounded-full">Popular</span>)}
+        {highlight && (
+          <span className="text-xs bg-[#EFD7DA] text-[#8a5f49] px-2 py-1 rounded-full">
+            Popular
+          </span>
+        )}
       </div>
-      <p className="text-3xl font-bold mt-2">{price}<span className="text-sm font-normal text-gray-500"> MXN</span></p>
-      <ul className="space-y-2 mt-4 text-sm">{features.map((f: string, i: number) => (<li key={i} className="flex gap-2"><ChevronRight className="w-4 h-4"/>{f}</li>))}</ul>
-      <a href="/book" className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95 transition">
-  {ctaText}
-</a>
+
+      <p className="text-3xl font-bold mt-2">
+        {price}
+        <span className="text-sm font-normal text-gray-500"> MXN</span>
+      </p>
+
+      <ul className="space-y-2 mt-4 text-sm">
+        {features.map((f: string, i: number) => (
+          <li key={i} className="flex gap-2">
+            <ChevronRight className="w-4 h-4" />
+            {f}
+          </li>
+        ))}
+      </ul>
+
+      <a
+        href={href ?? "/book"}
+        className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95 transition"
+      >
+        {ctaText}
+      </a>
+    </div>
   );
 }
 function InstructorCard({ img, name, role, bio }: any) {
