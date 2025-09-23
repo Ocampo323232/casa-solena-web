@@ -10,6 +10,7 @@ import Image from "next/image";
 // —— CONFIGURABLE BRAND TOKENS ——
 const BRAND = {
   name: "Casa Solena",
+  logo: "/logonegro.png",
   primary: "#5e544a",   // brown-gray headings
   accent: "#B39D7A",    // terracotta
   light: "#F5F5EB",     // cream
@@ -164,7 +165,17 @@ export default function StudioLanding() {
         <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
     {/* Logo / Nombre */}
-    <a href="/" className="font-bold tracking-tight text-lg">{BRAND.name}</a>
+    <a href="/" className="flex items-center">
+  <Image
+    src={BRAND.logo}
+    alt={BRAND.name}
+    width={140}
+    height={32}
+    priority
+    className="h-8 w-auto"
+  />
+  <span className="sr-only">{BRAND.name}</span>
+</a>
 
     {/* Nav desktop */}
     <nav className="hidden md:flex items-center gap-6">
@@ -195,7 +206,16 @@ export default function StudioLanding() {
   {menuOpen && (
     <div className="md:hidden fixed inset-0 z-50 bg-white/95 backdrop-blur">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b">
-        <span className="font-bold">{BRAND.name}</span>
+       <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center">
+  <Image
+    src={BRAND.logo}
+    alt={BRAND.name}
+    width={120}
+    height={28}
+    className="h-7 w-auto"
+  />
+  <span className="sr-only">{BRAND.name}</span>
+</a>
         <button
           className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
           aria-label="Cerrar menú"
