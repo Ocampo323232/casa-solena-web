@@ -169,14 +169,14 @@ export default function StudioLanding() {
   <Image
     src={BRAND.logo}
     alt={BRAND.name}
-    width={140}
-    height={32}
+    width={220}
+    height={60}
+   className="h-12 w-auto"
     priority
-    className="h-8 w-auto"
+    sizes="(max-width: 768px) 160px, 220px"
   />
   <span className="sr-only">{BRAND.name}</span>
 </a>
-
     {/* Nav desktop */}
     <nav className="hidden md:flex items-center gap-6">
       {t.nav.map((item, i) => (
@@ -210,8 +210,8 @@ export default function StudioLanding() {
   <Image
     src={BRAND.logo}
     alt={BRAND.name}
-    width={120}
-    height={28}
+    width={160}
+    height={44}
     className="h-7 w-auto"
   />
   <span className="sr-only">{BRAND.name}</span>
