@@ -210,8 +210,8 @@ export default function StudioLanding() {
   <Image
     src={BRAND.logo}
     alt={BRAND.name}
-    width={160}
-    height={44}
+    width={200}
+    height={84}
     className="h-7 w-auto"
   />
   <span className="sr-only">{BRAND.name}</span>
