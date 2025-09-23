@@ -297,7 +297,7 @@ export default function StudioLanding() {
 
         <section className="flex flex-col items-center text-center py-12">
           <Image
-            src="/casasolenapng2.png"
+            src="/logonegro.png"
             alt="Casa Solena"
             width={600}
             height={300}
