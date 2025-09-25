@@ -197,20 +197,30 @@ useEffect(() => {
     </button>
   </div>
 
-  {/* Panel móvil */}
-   {menuOpen && (
-<div className="md:hidden fixed inset-0 z-[400] bg-white flex flex-col p-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b">
-       <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center">
-  <Image
-    src={BRAND.logo}
-    alt={BRAND.name}
-    width={200}
-    height={84}
-    className="h-7 w-auto"
-  />
-  <span className="sr-only">{BRAND.name}</span>
-</a>
+ </header>
+
+{/* PANEL MÓVIL FUERA DEL HEADER */}
+{menuOpen && (
+  <div className="fixed inset-0 z-[1000]">
+    {/* Fondo opaco para bloquear lo de atrás */}
+    <div className="absolute inset-0 bg-white" />
+
+    {/* Contenido del panel */}
+    <div className="relative z-[1001] flex h-full flex-col">
+      {/* Top bar */}
+      <div className="h-16 flex items-center justify-between border-b px-4 sm:px-6 lg:px-8">
+        <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center">
+          <Image
+            src={BRAND.logo}
+            alt={BRAND.name}
+            width={200}
+            height={84}
+            className="h-7 w-auto"
+            priority
+          />
+          <span className="sr-only">{BRAND.name}</span>
+        </a>
+
         <button
           className="inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
           aria-label="Cerrar menú"
@@ -220,7 +230,8 @@ useEffect(() => {
         </button>
       </div>
 
-      <div className="px-6 py-6 space-y-3">
+      {/* Links */}
+      <div className="px-6 py-6 space-y-3 overflow-auto">
         {t.nav.map((item, i) => (
           <a
             key={i}
@@ -231,6 +242,28 @@ useEffect(() => {
             {item}
           </a>
         ))}
+
+        <a
+          href="#reservas"
+          className="block text-lg py-2"
+          onClick={() => setMenuOpen(false)}
+        >
+          Reservas
+        </a>
+
+        <div className="pt-4">
+          <a
+            href="/book"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95"
+            onClick={() => setMenuOpen(false)}
+          >
+            Book a class
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+)}
         <a href="#reservas" className="block text-lg py-2" onClick={() => setMenuOpen(false)}>
           Reservas
         </a>
