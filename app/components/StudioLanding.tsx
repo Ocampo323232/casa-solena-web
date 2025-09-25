@@ -199,7 +199,7 @@ useEffect(() => {
 
   {/* Panel móvil */}
    {menuOpen && (
-  <div className="md:hidden fixed inset-0 z-[200] bg-white"> 
+<div className="md:hidden fixed inset-0 z-[400] bg-white flex flex-col p-6">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b">
        <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center">
   <Image
