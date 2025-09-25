@@ -116,12 +116,16 @@ function Testimonial({ name, text, stars }: any) {
 }
 function StickyWhatsApp({ label }: { label: string }) {
   return (
-    <a href={BRAND.whatsapp} target="_blank" className="fixed bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-green-500 text-white px-5 py-3 shadow-lg hover:bg-green-600">
-      <MessageCircle className="w-5 h-5"/> {label}
+    <a
+      href={BRAND.whatsapp}
+      target="_blank"
+      className="fixed bottom-5 right-5 inline-flex items-center gap-2 rounded-full bg-green-500 text-white px-5 py-3 shadow-lg hover:bg-green-600"
+    >
+      <MessageCircle className="w-5 h-5" />
+      {label}
     </a>
   );
 }
-
 export default function StudioLanding() {
   const [lang] = useState<'es' | 'en'>('es');
     const [menuOpen, setMenuOpen] = useState(false);
@@ -361,15 +365,6 @@ export default function StudioLanding() {
           </div>
           <p className="text-sm text-gray-500 mt-4">*Precios de ejemplo. Ajusta a tu tabla real.</p>
         </Section>
-
-        {/* —— INSTRUCTORES —— */}
-        <Section id="sec-3">
-          <h2 className="text-3xl font-bold mb-8">Instructores</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {COPY.es.instructors.map((ins, i) => (<InstructorCard key={i} {...ins}/>))}
-          </div>
-        </Section>
-
         {/* —— TESTIMONIOS —— */}
         <Section>
           <h2 className="text-3xl font-bold mb-8">Lo que dicen nuestras alumnas</h2>
