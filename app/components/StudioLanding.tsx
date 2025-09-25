@@ -333,6 +333,7 @@ export default function StudioLanding() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {title:"Mat Pilates", desc:"Core y postura en mat.", icon:Leaf},
+              {title:"Sculpt", desc:"Definir y fortalecer el cuerpo", icon:Leaf},
               {title:"Barre", desc:"Cardio de bajo impacto con foco en tren inferior.", icon:HeartPulse},
             ].map((c,i)=>(
               <div key={i} className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
@@ -353,7 +354,7 @@ export default function StudioLanding() {
             <li>Sábado: 8:00 – 12:00 pm</li>
             <li>Domingo: 9:00 – 12:00 pm</li>
           </ul>
-          <p className="mt-4 text-sm text-gray-500">Clases de 1 hora · Máx. 12 alumnas/os por clase</p>
+          <p className="mt-4 text-sm text-gray-500">Clases de 30 min· </p>
           <p className="mt-2 text-xs text-gray-400">{scheduleNote}</p>
         </Section>
 
@@ -363,7 +364,7 @@ export default function StudioLanding() {
           <div className="grid md:grid-cols-3 gap-6">
             {COPY.es.pricePlans.map((p, i) => (<PlanCard key={i} {...p} ctaText={COPY.es.ctaBook} href="/book"/>))}
           </div>
-          <p className="text-sm text-gray-500 mt-4">*Precios de ejemplo. Ajusta a tu tabla real.</p>
+          <p className="text-sm text-gray-500 mt-4">*Precios de promoción, pueden cambiar sin previo aviso*</p>
         </Section>
         {/* —— TESTIMONIOS —— */}
         <Section>
