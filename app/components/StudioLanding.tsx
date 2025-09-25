@@ -23,7 +23,7 @@ const BRAND = {
 // —— COPY: ES / EN ——
 const COPY = {
   es: {
-    nav: ["Clases", "Horarios", "Precios", "Instructores", "Ubicación", "Preguntas"],
+    nav: ["Clases", "Horarios", "Precios", "Ubicación", "Preguntas"],
     heroTitle: "Pilates y Barre Studio",
     heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
     ctaBook: "Reservar clase",
@@ -32,7 +32,6 @@ const COPY = {
     classesTitle: "Nuestras clases",
     scheduleTitle: "Horarios",
     pricesTitle: "Precios y membresías",
-    instructorsTitle: "Instructores",
     testimonialsTitle: "Lo que dicen nuestras alumnas",
     faqTitle: "Preguntas frecuentes",
     locationTitle: "Ubicación",
@@ -103,18 +102,6 @@ function PlanCard({ name, price, features, highlight, ctaText, href }: any) {
       >
         {ctaText}
       </a>
-    </div>
-  );
-}
-function InstructorCard({ img, name, role, bio }: any) {
-  return (
-    <div className="rounded-2xl overflow-hidden border bg-white shadow-sm">
-      <div className="aspect-[4/3] bg-gray-100" style={{ backgroundImage: `url(${img})`, backgroundSize: "cover", backgroundPosition: "center" }} />
-      <div className="p-6">
-        <h4 className="font-semibold text-lg">{name}</h4>
-        <p className="text-sm text-gray-600">{role}</p>
-        <p className="mt-3 text-sm">{bio}</p>
-      </div>
     </div>
   );
 }
