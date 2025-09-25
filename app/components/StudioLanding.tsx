@@ -52,10 +52,6 @@ const COPY = {
       { name: "Mensualidad", price: "$3,199", features: ["1 Check in al día", "Prioridad en reservas"], highlight: false },
       { name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
     ],
-    instructors: [
-      { name: "Melissa A.", role: "Lead Instructor – Reformer / Barre", bio: "10+ años enseñando movimiento consciente.", img: "https://images.unsplash.com/photo-1544716278-e513176f20b5" },
-      { name: "Aranza R.", role: "Mat / Prenatal", bio: "Especialista en embarazo y postparto.", img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1" }
-    ],
     testimonials: [
       { name: "Mariana", text: "En 3 semanas mejoró mi postura y cero dolor lumbar. Amo que las clases sean chiquitas.", stars: 5 },
       { name: "Sofía", text: "El ambiente es súper amable y las rutinas cambian cada clase. Me motiva muchísimo.", stars: 5 }
