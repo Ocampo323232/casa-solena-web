@@ -142,7 +142,15 @@ export default function StudioLanding() {
       document.body.appendChild(s);
     }
   }, []);
-
+useEffect(() => {
+  if (menuOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "";
+  }
+  return () => { document.body.style.overflow = ""; };
+}, [menuOpen]);
+  
   const scheduleNote = "Lunes a Jueves: 6–10am y 6–10pm · Viernes: 6–10am y 6–9pm · Sábado: 8–12pm · Domingo: 9–12pm";
 
   return (
@@ -190,8 +198,8 @@ export default function StudioLanding() {
   </div>
 
   {/* Panel móvil */}
-  {menuOpen && (
-    <div className="md:hidden fixed inset-0 z-50 bg-white/95 backdrop-blur">
+   {menuOpen && (
+  <div className="md:hidden fixed inset-0 z-[200] bg-white"> 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between border-b">
        <a href="/" onClick={() => setMenuOpen(false)} className="flex items-center">
   <Image
@@ -241,7 +249,7 @@ export default function StudioLanding() {
   )}
 </header>
  {/* HERO MÓVIL (Moon-style) */}
-<div className="lg:hidden relative min-h-[80vh]">
+<div className="lg:hidden relative min-h-[80vh] z-0">
   <Image
     src="/heromobile3.png"
     alt="Casa Solena"
@@ -333,7 +341,7 @@ export default function StudioLanding() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {title:"Mat Pilates", desc:"Core y postura en mat.", icon:Leaf},
-              {title:"Sculpt", desc:"Definir y fortalecer el cuerpo", icon:Leaf},
+              {title:"Sculpt", desc:"Definir y fortalecer el cuerpo", icon:Dumbbell},
               {title:"Barre", desc:"Cardio de bajo impacto con foco en tren inferior.", icon:HeartPulse},
             ].map((c,i)=>(
               <div key={i} className="rounded-2xl border bg-white p-6 shadow-sm hover:shadow-md transition">
@@ -354,7 +362,7 @@ export default function StudioLanding() {
             <li>Sábado: 8:00 – 12:00 pm</li>
             <li>Domingo: 9:00 – 12:00 pm</li>
           </ul>
-          <p className="mt-4 text-sm text-gray-500">Clases de 30 min· </p>
+          <p className="mt-4 text-sm text-gray-500">Clases de 50 min· </p>
           <p className="mt-2 text-xs text-gray-400">{scheduleNote}</p>
         </Section>
 
@@ -432,8 +440,7 @@ export default function StudioLanding() {
             </div>
           </div>
         </footer>
-
-        <StickyWhatsApp label={COPY.es.ctaWhats}/>
+        {!menuOpen && <StickyWhatsApp label={COPY.es.ctaWhats} />}
       </div>
     </MotionConfig>
   );
