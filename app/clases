@@ -1,0 +1,94 @@
+"use client";
+import Image from "next/image";
+
+export const metadata = {
+  title: "Clases | Casa Solena",
+  description: "Barre, Pilates Mat y Sculpt en Casa Solena.",
+};
+
+const BRAND = {
+  accent: "#B39D7A",
+};
+
+export default function ClasesPage() {
+  return (
+    <main className="min-h-screen bg-white text-gray-900">
+      <section className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <h1 className="text-4xl font-bold text-center">Nuestras clases</h1>
+        <p className="text-center text-gray-600 mt-2">
+          Entrenamientos boutique para todos los niveles.
+        </p>
+
+        {/* BARRE */}
+        <article className="mt-12">
+          <h2 className="text-2xl font-semibold">
+            Barre <span style={{ color: BRAND.accent }}>· Fuerza y definición</span>
+          </h2>
+          <p className="mt-4 leading-relaxed">
+            Una clase dinámica de fuerza y definición que combina lo mejor del ballet, pilates y el entrenamiento funcional.
+            A través de movimientos precisos y fluidos, trabajamos todo el cuerpo con un enfoque en la postura, la coordinación y la resistencia.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            En cada sesión alternamos ejercicios de fuerza, cardio e isometría, logrando un entrenamiento completo que estiliza la figura,
+            fortalece los músculos profundos y mejora tu postura sin aumentar volumen.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            Utilizamos herramientas como la barra, mancuernas ligeras, ligas y pelota para retarte de forma segura, divertida y efectiva,
+            creando una experiencia que tonifica tanto el cuerpo como la mente.
+          </p>
+        </article>
+
+        {/* PILATES MAT */}
+        <article className="mt-12">
+          <h2 className="text-2xl font-semibold">
+            Pilates Mat <span style={{ color: BRAND.accent }}>· Core y postura</span>
+          </h2>
+          <p className="mt-4 leading-relaxed">
+            Pilates con Mat enfocado en fortalecer desde el core a través de movimientos controlados y de bajo impacto.
+            Cada ejercicio busca mejorar la estabilidad, la movilidad y la alineación postural, activando los músculos profundos que sostienen el cuerpo.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            El trabajo constante desde el core genera fuerza interior, mientras alarga y tonifica la figura con cada movimiento.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            Usamos mat, ligas y pelota para variar la intensidad y adaptarnos a todos los niveles, creando una práctica desafiante, segura y consciente.
+          </p>
+        </article>
+
+        {/* SCULPT */}
+        <article className="mt-12">
+          <h2 className="text-2xl font-semibold">
+            Sculpt <span style={{ color: BRAND.accent }}>· Tonificación total</span>
+          </h2>
+          <p className="mt-4 leading-relaxed">
+            Una clase dinámica de tonificación y resistencia diseñada para trabajar todo el cuerpo.
+            Es un entrenamiento completo que combina fuerza y cardio con repeticiones y control, esculpiendo cada grupo muscular de forma equilibrada.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            Con el uso de mancuernas, ligas y bandas de resistencia, fortalecemos y definimos los músculos,
+            mejoramos la fuerza funcional y aumentamos la resistencia cardiovascular.
+          </p>
+          <p className="mt-3 leading-relaxed">
+            Ideal para quienes buscan un cuerpo más fuerte, estilizado y seguro en cada movimiento.
+          </p>
+        </article>
+
+        {/* CTA */}
+        <div className="mt-12 flex flex-col sm:flex-row gap-3">
+          <a
+            href="/book"
+            className="inline-flex items-center justify-center rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95 w-full sm:w-auto"
+          >
+            Reservar clase
+          </a>
+          <a
+            href="/"
+            className="inline-flex items-center justify-center rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50 w-full sm:w-auto"
+          >
+            Volver al inicio
+          </a>
+        </div>
+      </section>
+    </main>
+  );
+}
