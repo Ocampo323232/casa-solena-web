@@ -286,64 +286,59 @@ useEffect(() => {
         </div>
       </div>
 {/* HERO DESKTOP (tu layout original) */}
-<div className="hidden lg:block">
-  <Section id="hero">
-    <section className="min-h-screen flex flex-col justify-center items-center text-center px-4">
-  <div className="inline-flex items-center gap-2 bg-white rounded-full border px-3 py-1 text-xs mb-6">
-    <ShieldCheck className="w-4 h-4" style={{ color: BRAND.accent }} />
-    <span>Clases seguras · Formato boutique</span>
-  </div>
+<div className="hidden lg:flex items-center justify-center min-h-screen">
+  <section className="flex flex-col items-center text-center">
+    <Image
+      src="/logonegro.png"
+      alt="Casa Solena"
+      width={600}
+      height={300}
+      className="w-auto h-auto mb-6"
+      priority
+    />
+    <h1 className="text-4xl font-bold text-[#5e544a]">{t.heroTitle}</h1>
 
-  <Image
-    src="/logonegro.png"
-    alt="Casa Solena"
-    width={600}
-    height={300}
-    className="w-auto h-auto mb-6"
-    priority
-  />
+    <p className="mt-4 text-lg text-gray-600">
+      Fuerza, postura y bienestar en un mismo lugar.
+    </p>
 
-  <h1 className="text-4xl font-bold text-[#5e544a]">{t.heroTitle}</h1>
-  <p className="mt-4 text-lg text-gray-600">
-    Fuerza, postura y bienestar en un mismo lugar.
-  </p>
-
-  <div className="mt-6 flex flex-wrap items-center gap-3">
-    <a
-      href="/book"
-      className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95"
-    >
-      <Clock3 className="w-5 h-5" /> Reservar clase
-    </a>
-    <a
-      href={BRAND.whatsapp}
-      target="_blank"
-      className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50"
-    >
-      <Phone className="w-5 h-5" /> WhatsApp
-    </a>
-  </div>
-
-  <div className="mt-6 flex flex-wrap gap-2">
-    {t.trust.map((v, i) => (
-      <span
-        key={i}
-        className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-white/70 backdrop-blur border-gray-200"
+    <div className="mt-6 flex flex-wrap items-center gap-3">
+      <a
+        href="/book"
+        className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95"
       >
-        {v}
-      </span>
-    ))}
-  </div>
+        <Clock3 className="w-5 h-5" /> Reservar clase
+      </a>
+      <a
+        href={BRAND.whatsapp}
+        target="_blank"
+        className="inline-flex items-center gap-2 rounded-xl border px-5 py-3 font-semibold hover:bg-gray-50"
+      >
+        <Phone className="w-5 h-5" /> WhatsApp
+      </a>
+    </div>
 
-  <div className="mt-8 flex items-center gap-6 text-sm text-gray-600">
-    <div className="flex items-center gap-2">
-      <Star className="w-4 h-4" style={{ color: BRAND.accent }} /> 4.9/5 rating
+    <div className="mt-6 flex flex-wrap gap-2">
+      {t.trust.map((v, i) => (
+        <span
+          key={i}
+          className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-white/70 backdrop-blur border-gray-200"
+        >
+          {v}
+        </span>
+      ))}
     </div>
-    <div className="flex items-center gap-2">
-      <MapPin className="w-4 h-4" style={{ color: BRAND.accent }} /> {BRAND.address}
+
+    <div className="mt-8 flex items-center gap-6 text-sm text-gray-600">
+      <div className="flex items-center gap-2">
+        <Star className="w-4 h-4" style={{ color: BRAND.accent }} /> 4.9/5 rating
+      </div>
+      <div className="flex items-center gap-2">
+        <MapPin className="w-4 h-4" style={{ color: BRAND.accent }} />{" "}
+        {BRAND.address}
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 </div>
         {/* —— CLASES —— */}
         <Section id="sec-0">
