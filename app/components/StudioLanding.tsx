@@ -374,21 +374,34 @@ useEffect(() => {
         </Section>
 
         {/* —— PRECIOS —— */}
-        <Section id="sec-2">
-          <h2 className="text-3xl font-bold mb-8">Precios y membresías</h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {COPY.es.pricePlans.map((p, i) => (<PlanCard key={i} {...p} ctaText={COPY.es.ctaBook} href="/book"/>))}
-          </div>
-          <p className="text-sm text-gray-500 mt-4">*Precios de promoción, pueden cambiar sin previo aviso*</p>
-        </Section>
-        {/* —— TESTIMONIOS —— */}
-        <Section>
-          <h2 className="text-3xl font-bold mb-8">Lo que dicen nuestras alumnas</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            {COPY.es.testimonials.map((ts, i) => (<Testimonial key={i} {...ts}/>))}
-          </div>
-        </Section>
+<Section id="sec-2">
+  <h2 className="text-3xl font-bold mb-8">Precios y membresías</h2>
 
+  <div className="grid md:grid-cols-3 gap-6">
+    {COPY.es.pricePlans.map((p, i) => {
+      const isRising = p.name === "Solena Rising 2026";
+      const href =
+        isRising && p.price === "$3,000"
+          ? "https://mpago.la/15sxNDM"
+          : isRising && p.price === "$3,600"
+          ? "https://mpago.la/1gxZTZb"
+          : "/book";
+
+      return (
+        <PlanCard
+          key={i}
+          {...p}
+          ctaText={COPY.es.ctaBook}
+          href={href}
+        />
+      );
+    })}
+  </div>
+
+  <p className="text-sm text-gray-500 mt-4">
+    *Precios de promoción, pueden cambiar sin previo aviso*
+  </p>
+</Section>
         {/* —— FAQ —— */}
         <Section id="sec-5">
           <h2 className="text-3xl font-bold mb-8">Preguntas frecuentes</h2>
