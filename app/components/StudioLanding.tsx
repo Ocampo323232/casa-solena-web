@@ -43,6 +43,8 @@ const COPY = {
       { q: "¿Cómo reservo o cancelo?", a: "Reserva desde el sistema en línea o por WhatsApp. Puedes cancelar hasta 8 h antes sin penalidad." }
     ],
     pricePlans: [
+      { name: "Solena Rising 2026", price: "$3,000", features: ["Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true },
+      { name: "Solena Rising 2026", price: "$3,600", features: ["Consulta Nutricional con InBody", "Plan Nutricional Personalizado","Revisión de Laboratorios","Acceso a App para seguimiento, cambio de alimentos y Tracker de comidad","Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true }
       { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
       { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
       { name: "Paquete 4 clases", price: "$1,039", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
@@ -50,8 +52,6 @@ const COPY = {
       { name: "Paquete 12 clases", price: "$2,699", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
       { name: "Mensualidad", price: "$3,199", features: ["1 Check in al día", "Prioridad en reservas"], highlight: false },
       { name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false },
-      { name: "Solena Rising 2026", price: "$3,000", features: ["Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true },
-      { name: "Solena Rising 2026", price: "$3,600", features: ["Consulta Nutricional con InBody", "Plan Nutricional Personalizado","Revisión de Laboratorios","Acceso a App para seguimiento, cambio de alimentos y Tracker de comidad","Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true }
     ],
     testimonials: [
       { name: "Mariana", text: "En 3 semanas mejoró mi postura y cero dolor lumbar. Amo que las clases sean chiquitas.", stars: 5 },
@@ -309,7 +309,7 @@ useEffect(() => {
         href="/book"
         className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95"
       >
-        <Clock3 className="w-5 h-5" /> Reservar clase
+        <Clock3 className="w-5 h-5" /> Comprar Ahora
       </a>
       <a
         href={BRAND.whatsapp}
