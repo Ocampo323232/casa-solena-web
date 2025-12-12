@@ -44,7 +44,7 @@ const COPY = {
     ],
     pricePlans: [
       { name: "Solena Rising 2026", price: "$3,000", features: ["Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true },
-      { name: "Solena Rising 2026", price: "$3,600", features: ["Consulta Nutricional con InBody", "Plan Nutricional Personalizado","Revisión de Laboratorios","Acceso a App para seguimiento, cambio de alimentos y Tracker de comidad","Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true }
+      { name: "Solena Rising 2026", price: "$3,600", features: ["Consulta Nutricional con InBody", "Plan Nutricional Personalizado","Revisión de Laboratorios","Acceso a App para seguimiento, cambio de alimentos y Tracker de comidas","Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true }
       { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
       { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
       { name: "Paquete 4 clases", price: "$1,039", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
