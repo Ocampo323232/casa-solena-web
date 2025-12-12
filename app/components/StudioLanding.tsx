@@ -26,7 +26,7 @@ const COPY = {
     nav: ["Clases", "Horarios", "Precios", "Ubicación", "Preguntas"],
     heroTitle: "Pilates y Barre Studio",
     heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
-    ctaBook: "Reservar clase",
+    ctaBook: "Comprar Ahora",
     ctaWhats: "WhatsApp",
     trust: ["Espacios Amplios", "Instructores certificados", "Un espacio seguro"],
     classesTitle: "Nuestras clases",
@@ -309,7 +309,7 @@ useEffect(() => {
         href="/book"
         className="inline-flex items-center gap-2 rounded-xl bg-[#B39D7A] text-white px-5 py-3 font-semibold hover:brightness-95"
       >
-        <Clock3 className="w-5 h-5" /> Comprar Ahora
+        <Clock3 className="w-5 h-5" /> Reservar
       </a>
       <a
         href={BRAND.whatsapp}
