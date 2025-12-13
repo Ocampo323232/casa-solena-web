@@ -382,9 +382,9 @@ useEffect(() => {
       const isRising = p.name === "Solena Rising 2026";
       const href =
         isRising && p.price === "$3,000"
-          ? "https://mpago.la/15sxNDM"
+          ? "https://buy.stripe.com/3cI6oHatif0e9uK5tf5AQ01"
           : isRising && p.price === "$3,600"
-          ? "https://mpago.la/1gxZTZb"
+          ? "https://buy.stripe.com/8x228rgRG05kdL0cVH5AQ02"
           : "/book";
 
       return (
