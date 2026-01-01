@@ -43,16 +43,16 @@ const COPY = {
       { q: "¿Cómo reservo o cancelo?", a: "Reserva desde el sistema en línea o por WhatsApp. Puedes cancelar hasta 8 h antes sin penalidad." }
     ],
     pricePlans: [
-      { name: "Solena Rising 2026", price: "$3,000", features: ["Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true },
-      { name: "Solena Rising 2026", price: "$3,600", features: ["Consulta Nutricional con InBody", "Plan Nutricional Personalizado","Revisión de Laboratorios","Acceso a App para seguimiento, cambio de alimentos y Tracker de comidas","Clases ilimitadas del 5 de enero al 9 de febrero", "Premios por cumplimiento de sellos cada semana"], highlight: true },
-      { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
-      { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
-      { name: "Paquete 4 clases", price: "$1,039", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
-      { name: "Paquete 8 clases", price: "$1,899", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
-      { name: "Paquete 12 clases", price: "$2,699", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
-      { name: "Mensualidad", price: "$3,199", features: ["1 Check in al día", "Prioridad en reservas"], highlight: false },
-      { name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false }
-    ],
+  { name: "First Time", price: "$229", features: ["1 acceso", "Válido 30 días"], highlight: false },
+  { name: "Clase suelta", price: "$289", features: ["1 acceso", "Válido 30 días"], highlight: false },
+  // ✅ PROMOS
+  { name: "Paquete 4 clases", originalPrice: "$1,039", price: "$830", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+  { name: "Paquete 8 clases", originalPrice: "$1,899", price: "$1,500", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
+  { name: "Paquete 12 clases", price: "$2,699", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
+  // ✅ PROMO
+  { name: "Mensualidad", originalPrice: "$3,199", price: "$1,999", features: ["1 Check in al día", "Prioridad en reservas"], highlight: true },
+{ name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false },
+],
     testimonials: [
       { name: "Mariana", text: "En 3 semanas mejoró mi postura y cero dolor lumbar. Amo que las clases sean chiquitas.", stars: 5 },
       { name: "Sofía", text: "El ambiente es súper amable y las rutinas cambian cada clase. Me motiva muchísimo.", stars: 5 }
@@ -66,7 +66,7 @@ function Section({ id, children }: { id?: string; children: React.ReactNode }) {
 function Badge({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-white/70 backdrop-blur border-gray-200">{children}</span>;
 }
-function PlanCard({ name, price, features, highlight, ctaText, href }: any) {
+function PlanCard({ name, price, originalPrice, features, highlight, ctaText, href }: any) {
   return (
     <div
       className={`rounded-2xl border p-6 shadow-sm bg-white ${
@@ -83,12 +83,18 @@ function PlanCard({ name, price, features, highlight, ctaText, href }: any) {
           </span>
         )}
       </div>
+      <div className="mt-2 flex items-end gap-3">
+  {originalPrice && (
+    <span className="text-sm font-semibold text-gray-500 line-through">
+      {originalPrice}
+    </span>
+  )}
 
-      <p className="text-3xl font-bold mt-2">
-        {price}
-        <span className="text-sm font-normal text-gray-500"> MXN</span>
-      </p>
-
+  <p className="text-3xl font-bold">
+    {price}
+    <span className="text-sm font-normal text-gray-500"> MXN</span>
+  </p>
+</div>
       <ul className="space-y-2 mt-4 text-sm">
         {features.map((f: string, i: number) => (
           <li key={i} className="flex gap-2">
@@ -373,29 +379,19 @@ useEffect(() => {
           <p className="mt-2 text-xs text-gray-400">{scheduleNote}</p>
         </Section>
 
-        {/* —— PRECIOS —— */}
+      {/* —— PRECIOS —— */}
 <Section id="sec-2">
   <h2 className="text-3xl font-bold mb-8">Precios y membresías</h2>
 
   <div className="grid md:grid-cols-3 gap-6">
-    {COPY.es.pricePlans.map((p, i) => {
-      const isRising = p.name === "Solena Rising 2026";
-      const href =
-        isRising && p.price === "$3,000"
-          ? "https://buy.stripe.com/3cI6oHatif0e9uK5tf5AQ01"
-          : isRising && p.price === "$3,600"
-          ? "https://buy.stripe.com/8x228rgRG05kdL0cVH5AQ02"
-          : "/book";
-
-      return (
-        <PlanCard
-          key={i}
-          {...p}
-          ctaText={COPY.es.ctaBook}
-          href={href}
-        />
-      );
-    })}
+    {t.pricePlans.map((p, i) => (
+      <PlanCard
+        key={i}
+        {...p}
+        ctaText={t.ctaBook}
+        href="/book"
+      />
+    ))}
   </div>
 
   <p className="text-sm text-gray-500 mt-4">
