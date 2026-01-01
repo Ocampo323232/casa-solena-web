@@ -48,7 +48,6 @@ const COPY = {
   // ✅ PROMOS
   { name: "Paquete 4 clases", originalPrice: "$1,039", price: "$830", features: ["4 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
   { name: "Paquete 8 clases", originalPrice: "$1,899", price: "$1,500", features: ["8 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: true },
-  { name: "Paquete 12 clases", price: "$2,699", features: ["12 accesos", "Vigencia 30 días", "Reserva flexible"], highlight: false },
   // ✅ PROMO
   { name: "Mensualidad", originalPrice: "$3,199", price: "$1,999", features: ["1 Check in al día", "Prioridad en reservas"], highlight: true },
 { name: "All Access", price: "$4,299", features: ["Clases ilimitadas", "Prioridad en reservas"], highlight: false },
@@ -67,34 +66,59 @@ function Badge({ children }: { children: React.ReactNode }) {
   return <span className="inline-flex items-center rounded-full border px-3 py-1 text-sm font-medium bg-white/70 backdrop-blur border-gray-200">{children}</span>;
 }
 function PlanCard({ name, price, originalPrice, features, highlight, ctaText, href }: any) {
+  const parseMoney = (v?: string) =>
+    v ? Number(v.replace(/[^0-9]/g, "")) : null;
+
+  const original = parseMoney(originalPrice);
+  const current = parseMoney(price);
+  const savings = original && current ? original - current : null;
+
   return (
     <div
-      className={`rounded-2xl border p-6 shadow-sm bg-white ${
-        highlight
+      className={`rounded-2xl border p-6 shadow-sm bg-white transition ${
+        originalPrice
           ? "border-[#B39D7A] shadow-[#E1DACA] ring-1 ring-[#E1DACA]"
           : "border-gray-200"
       }`}
     >
       <div className="flex items-baseline justify-between">
         <h3 className="text-xl font-semibold">{name}</h3>
-        {highlight && (
-          <span className="text-xs bg-[#EFD7DA] text-[#8a5f49] px-2 py-1 rounded-full">
-            Popular
+
+        {(highlight || originalPrice) && (
+          <span className="text-xs bg-[#F5F5EB] text-[#5e544a] px-2 py-1 rounded-full border border-[#E1DACA]">
+            Oferta limitada
           </span>
         )}
       </div>
-      <div className="mt-2 flex items-end gap-3">
-  {originalPrice && (
-    <span className="text-sm font-semibold text-gray-500 line-through">
-      {originalPrice}
-    </span>
-  )}
 
-  <p className="text-3xl font-bold">
-    {price}
-    <span className="text-sm font-normal text-gray-500"> MXN</span>
-  </p>
-</div>
+      {/* Precios */}
+      <div className="mt-3">
+        <div className="flex items-end gap-3">
+          {originalPrice && (
+            <span className="text-sm font-semibold text-gray-500 line-through">
+              {originalPrice}
+            </span>
+          )}
+
+          <p className="text-3xl font-bold">
+            {price}
+            <span className="text-sm font-normal text-gray-500"> MXN</span>
+          </p>
+        </div>
+
+        {savings !== null && savings > 0 && (
+          <p className="mt-1 text-sm text-[#5e544a]">
+            Ahorras <span className="font-semibold">${savings.toLocaleString("es-MX")}</span>
+          </p>
+        )}
+
+        {originalPrice && (
+       <p className="mt-1 text-xs text-gray-500">
+  Cupos limitados · Promoción válida hasta el <span className="font-medium">18 de enero</span>
+</p>
+        )}
+      </div>
+
       <ul className="space-y-2 mt-4 text-sm">
         {features.map((f: string, i: number) => (
           <li key={i} className="flex gap-2">
@@ -103,13 +127,16 @@ function PlanCard({ name, price, originalPrice, features, highlight, ctaText, hr
           </li>
         ))}
       </ul>
-
-      <a
-        href={href ?? "/book"}
-        className="mt-6 inline-flex w-full items-center justify-center rounded-xl bg-[#B39D7A] text-white py-3 font-semibold hover:brightness-95 transition"
-      >
-        {ctaText}
-      </a>
+<a
+  href={href ?? "/book"}
+  className={`mt-6 inline-flex w-full items-center justify-center rounded-xl py-3 font-semibold transition ${
+    originalPrice
+      ? "bg-[#B39D7A] text-white hover:brightness-95"
+      : "bg-[#5e544a] text-white hover:brightness-95"
+  }`}
+>
+  {originalPrice ? "Aprovechar promo" : ctaText}
+</a>
     </div>
   );
 }
@@ -382,6 +409,15 @@ useEffect(() => {
       {/* —— PRECIOS —— */}
 <Section id="sec-2">
   <h2 className="text-3xl font-bold mb-8">Precios y membresías</h2>
+<div className="mb-6 rounded-2xl border bg-white p-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+  <div className="text-sm text-gray-700">
+    <span className="font-semibold">Oferta limitada de inicio de año:</span>{" "}
+    precios especiales en paquetes y mensualidad.
+  </div>
+  <div className="text-xs text-gray-500">
+    Vigente hasta el <span className="font-medium">18 de enero</span> · Cupos limitados
+  </div>
+</div>
 
   <div className="grid md:grid-cols-3 gap-6">
     {t.pricePlans.map((p, i) => (
