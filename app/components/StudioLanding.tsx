@@ -14,7 +14,7 @@ const BRAND = {
   primary: "#5e544a",   // brown-gray headings
   accent: "#B39D7A",    // terracotta
   light: "#F5F5EB",     // cream
-  whatsapp: "https://wa.me/526642952887?text=Hola%20quiero%20reservar%20una%20clase",
+  whatsapp: "https://wa.me/525554666694?text=Hola%20quiero%20reservar%20una%20clase",
   booking: "https://www.myfitune.io/embed/casa-solena/activities",
   address: "Av. División del Nte. 1044, Narvarte Poniente, Benito Juárez, 03020 Ciudad de México, CDMX",
   maps: "https://maps.google.com/?q=Av.+División+del+Nte.+1044,+Narvarte+Poniente,+Benito+Juárez,+03020+Ciudad+de+México,+CDMX"
