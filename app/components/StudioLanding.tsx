@@ -114,7 +114,7 @@ function PlanCard({ name, price, originalPrice, features, highlight, ctaText, hr
 
         {originalPrice && (
        <p className="mt-1 text-xs text-gray-500">
-  Cupos limitados · Promoción válida hasta el <span className="font-medium">18 de enero</span>
+  Cupos limitados · Promoción válida hasta el <span className="font-medium">18 de febrero</span>
 </p>
         )}
       </div>
@@ -415,7 +415,7 @@ useEffect(() => {
     precios especiales en paquetes y mensualidad.
   </div>
   <div className="text-xs text-gray-500">
-    Vigente hasta el <span className="font-medium">18 de enero</span> · Cupos limitados
+    Vigente hasta el <span className="font-medium">18 de febrero</span> · Cupos limitados
   </div>
 </div>
 
