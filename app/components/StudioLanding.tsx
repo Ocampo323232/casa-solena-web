@@ -414,7 +414,7 @@ export default function StudioLanding() {
           />
         </Section>
                 {/* —— Cursos —— */}
-        Section id="sec-4">
+        <Section id="sec-4">
   <h2 className="text-3xl font-bold mb-8">Cursos</h2>
 
   <div className="rounded-2xl overflow-hidden border bg-white">
