@@ -40,7 +40,7 @@ const BRAND = {
 
 const COPY = {
   es: {
-    nav: ["Clases", "Horarios", "Precios", "Eventos", "Ubicación", "Preguntas"],
+    nav: ["Clases", "Horarios", "Precios", "Eventos", "Cursos", "Ubicación", "Preguntas"],
     heroTitle: "Pilates y Barre Studio",
     heroSubtitle: "Fuerza, postura y bienestar en un mismo lugar.",
     ctaBook: "Reservar clase",
@@ -413,6 +413,22 @@ export default function StudioLanding() {
             title="Precios y membresías Casa Solena"
           />
         </Section>
+                {/* —— Cursos —— */}
+        Section id="sec-4">
+  <h2 className="text-3xl font-bold mb-8">Cursos</h2>
+
+  <div className="rounded-2xl overflow-hidden border bg-white">
+    <iframe
+      id="fituneCourses"
+      src="https://www.myfitune.io/embed/casa-solena/courses"
+      height="700"
+      width="100%"
+      frameBorder="0"
+      className="w-full"
+    />
+  </div>
+</Section>
+  
 
         {/* —— EVENTOS —— */}
         <Section id="sec-3">
@@ -425,7 +441,7 @@ export default function StudioLanding() {
         </Section>
 
         {/* —— UBICACIÓN —— */}
-        <Section id="sec-4">
+        <Section id="sec-5">
           <h2 className="text-3xl font-bold mb-6">{t.locationTitle}</h2>
 
           <div className="grid lg:grid-cols-2 gap-6 items-start">
@@ -500,7 +516,7 @@ export default function StudioLanding() {
         </Section>
 
         {/* —— FAQ —— */}
-        <Section id="sec-5">
+        <Section id="sec-6">
           <h2 className="text-3xl font-bold mb-8">{t.faqTitle}</h2>
 
           <div className="space-y-4">
