@@ -403,11 +403,12 @@ export default function StudioLanding() {
         {/* —— HORARIOS —— */}
         <Section id="sec-1">
           <h2 className="text-3xl font-bold mb-8">{t.scheduleTitle}</h2>
-          <FituneEmbed
-            id="fituneActivities"
-            src={BRAND.booking}
-            title="Horarios Casa Solena"
-          />
+         <FituneEmbed
+  id="fituneActivities"
+  src={BRAND.booking}
+  title="Horarios Casa Solena"
+  height="1400px"
+/>
         </Section>
 
         {/* —— PRECIOS —— */}
