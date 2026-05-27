@@ -35,7 +35,7 @@ const BRAND = {
   address:
     "Av. División del Nte. 1044, Narvarte Poniente, Benito Juárez, 03020 Ciudad de México, CDMX",
   maps: "https://maps.google.com/?q=Av.+División+del+Nte.+1044,+Narvarte+Poniente,+Benito+Juárez,+03020+Ciudad+de+México,+CDMX",
-  fituneScript: "https://dev-my.fitune.io/iframeHeightSetter.js",
+  fituneScript: "https://www.myfitune.io/iframeHeightSetter.js",
 };
 
 const COPY = {
@@ -103,10 +103,12 @@ function FituneEmbed({
   id,
   src,
   title,
+  height = "900px",
 }: {
   id: string;
   src: string;
   title: string;
+  height?: string;
 }) {
   return (
     <div className="rounded-2xl overflow-hidden border bg-white shadow-sm">
@@ -114,15 +116,19 @@ function FituneEmbed({
         id={id}
         title={title}
         src={src}
-        height="700"
         width="100%"
         frameBorder="0"
+        scrolling="yes"
         className="w-full"
+        style={{
+          height,
+          minHeight: height,
+          border: 0,
+        }}
       />
     </div>
   );
 }
-
 export default function StudioLanding() {
   const [lang] = useState<"es">("es");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -407,11 +413,12 @@ export default function StudioLanding() {
         {/* —— PRECIOS —— */}
         <Section id="sec-2">
           <h2 className="text-3xl font-bold mb-8">{t.pricesTitle}</h2>
-          <FituneEmbed
-            id="fitunePricing"
-            src={BRAND.pricing}
-            title="Precios y membresías Casa Solena"
-          />
+       <FituneEmbed
+  id="fitunePricing"
+  src={BRAND.pricing}
+  title="Precios y membresías Casa Solena"
+  height="1500px"
+/>
         </Section>
                 {/* —— Cursos —— */}
         <Section id="sec-4">
