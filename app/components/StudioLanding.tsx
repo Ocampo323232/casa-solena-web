@@ -441,10 +441,19 @@ export default function StudioLanding() {
         {/* —— EVENTOS —— */}
         <Section id="sec-3">
           <h2 className="text-3xl font-bold mb-8">{t.eventsTitle}</h2>
+          <a
+            href={BRAND.events}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mb-4 inline-block text-sm font-semibold text-[#5e544a] underline underline-offset-4"
+          >
+            Ver todos los eventos en pantalla completa
+          </a>
           <FituneEmbed
             id="fituneEvents"
             src={BRAND.events}
             title="Eventos Casa Solena"
+            height="1700px"
           />
         </Section>
 
