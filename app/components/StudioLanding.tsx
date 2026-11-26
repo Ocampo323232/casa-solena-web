@@ -12,7 +12,6 @@ import {
   ChevronRight,
   Star,
   Instagram,
-  Facebook,
   Mail,
   MessageCircle,
   Menu,
@@ -24,6 +23,7 @@ import Image from "next/image";
 const BRAND = {
   name: "Casa Solena",
   logo: "/logonegro.png",
+  instagram: "https://www.instagram.com/casasolenamx/",
   primary: "#5e544a",
   accent: "#B39D7A",
   light: "#F5F5EB",
@@ -236,6 +236,10 @@ export default function StudioLanding() {
               </a>
             </div>
 
+            <div className="flex items-center gap-2">
+              <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" aria-label="Instagram de Casa Solena" title="@casasolenamx" className="inline-flex items-center justify-center rounded-full p-2 text-[#5e544a] hover:bg-[#F5F5EB] hover:text-[#A48363] focus-visible:outline focus-visible:outline-2 focus-visible:outline-[#A48363]">
+                <Instagram className="w-5 h-5" />
+              </a>
             <button
               className="md:hidden inline-flex items-center justify-center rounded-md p-2 hover:bg-gray-100"
               aria-label="Abrir menú"
@@ -243,6 +247,7 @@ export default function StudioLanding() {
             >
               <Menu className="w-6 h-6" />
             </button>
+            </div>
           </div>
         </header>
 
@@ -289,6 +294,9 @@ export default function StudioLanding() {
                   </a>
                 )))}
 
+                <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 py-2 text-lg text-[#5e544a]" onClick={() => setMenuOpen(false)}>
+                  <Instagram className="w-5 h-5" /> @casasolenamx
+                </a>
                 <div className="pt-4">
                   <a
                     href="/book"
@@ -525,18 +533,13 @@ export default function StudioLanding() {
 
               <div className="flex gap-3 pt-2">
                 <a
-                  href="https://www.instagram.com/casasolenamx?igsh=ZjJkMTZyZWYzM3Q4"
+                  href={BRAND.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 rounded-full border hover:bg-gray-50"
                   aria-label="Instagram"
                 >
                   <Instagram className="w-5 h-5" />
-                </a>
-                <a
-                  href="https://www.instagram.com/casasolenamx?igsh=ZjJkMTZyZWYzM3Q4"
-                  className="p-2 rounded-full border hover:bg-gray-50"
-                  aria-label="Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
                 </a>
                 <a
                   href="mailto:melissagracian@casasolena.mx"
@@ -588,7 +591,10 @@ export default function StudioLanding() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-gray-600 flex flex-col md:flex-row items-center justify-between gap-4">
             <div>{t.footer}</div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
+              <a href={BRAND.instagram} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 hover:text-[#A48363]" aria-label="Instagram de Casa Solena">
+                <Instagram className="w-5 h-5" /> @casasolenamx
+              </a>
               <a href="#hero" className="hover:text-[#A48363]">
                 Inicio
               </a>
