@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect, useRef } from "react";
 import { MotionConfig } from "framer-motion";
 import {
   Dumbbell,
@@ -107,14 +107,32 @@ function FituneEmbed({
   src,
   title,
   height = "900px",
+  mobileWide = false,
 }: {
   id: string;
   src: string;
   title: string;
   height?: string;
+  mobileWide?: boolean;
 }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [availableWidth, setAvailableWidth] = useState(0);
+  useEffect(() => {
+    if (!mobileWide || !containerRef.current) return;
+    const container = containerRef.current;
+    const measure = () => setAvailableWidth(container.clientWidth);
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, [mobileWide]);
+  // Fitune event details need more horizontal space than narrow phones provide.
+  // CSS zoom scales layout and height together, including Fitune height updates.
+  const zoom = mobileWide && availableWidth > 0 && availableWidth < 500
+    ? availableWidth / 500 : 1;
   return (
-    <div className="rounded-2xl overflow-hidden border bg-white shadow-sm">
+    <div ref={containerRef} className={mobileWide ? "-mx-4 sm:mx-0 sm:rounded-2xl overflow-hidden sm:border bg-white shadow-sm" : "rounded-2xl overflow-hidden border bg-white shadow-sm"}>
+      <div style={zoom < 1 ? { width: 500, zoom } : undefined}>
       <iframe
         id={id}
         title={title}
@@ -122,13 +140,14 @@ function FituneEmbed({
         width="100%"
         frameBorder="0"
         scrolling="yes"
-        className="w-full"
+        className="block w-full"
         style={{
           height,
           minHeight: height,
           border: 0,
         }}
       />
+      </div>
     </div>
   );
 }
@@ -484,15 +503,16 @@ export default function StudioLanding() {
             href={BRAND.events}
             target="_blank"
             rel="noopener noreferrer"
-            className="mb-4 inline-block text-sm font-semibold text-[#5e544a] underline underline-offset-4"
+            className="mb-4 flex w-full items-center justify-center gap-2 rounded-xl bg-[#B39D7A] px-4 py-3 text-sm font-semibold text-white sm:inline-flex sm:w-auto sm:bg-transparent sm:p-0 sm:text-[#5e544a] sm:underline sm:underline-offset-4"
           >
-            Ver todos los eventos en pantalla completa
+            Ver todos los eventos en pantalla completa <ChevronRight className="w-4 h-4" />
           </a>
           <FituneEmbed
             id="fituneEvents"
             src={BRAND.events}
             title="Eventos Casa Solena"
             height="1700px"
+            mobileWide
           />
         </Section>
 
