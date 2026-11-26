@@ -38,6 +38,9 @@ const BRAND = {
   fituneScript: "https://www.myfitune.io/iframeHeightSetter.js",
 };
 
+// Set to true when courses are available again.
+const SHOW_COURSES = false;
+
 const COPY = {
   es: {
     nav: ["Clases", "Horarios", "Precios", "Eventos", "Cursos", "Ubicación", "Preguntas"],
@@ -206,7 +209,7 @@ export default function StudioLanding() {
             </a>
 
             <nav className="hidden md:flex items-center gap-6">
-              {t.nav.map((item, i) => (
+              {t.nav.map((item, i) => (!SHOW_COURSES && i === 4 ? null : (
                 <a
                   key={i}
                   href={`#sec-${i}`}
@@ -214,7 +217,7 @@ export default function StudioLanding() {
                 >
                   {item}
                 </a>
-              ))}
+              )))}
               <a
                 href="/book"
                 className="text-sm hover:text-[#A48363] transition"
@@ -275,7 +278,7 @@ export default function StudioLanding() {
               </div>
 
               <div className="px-6 py-6 space-y-3 overflow-auto">
-                {t.nav.map((item, i) => (
+                {t.nav.map((item, i) => (!SHOW_COURSES && i === 4 ? null : (
                   <a
                     key={i}
                     href={`#sec-${i}`}
@@ -284,7 +287,7 @@ export default function StudioLanding() {
                   >
                     {item}
                   </a>
-                ))}
+                )))}
 
                 <div className="pt-4">
                   <a
@@ -450,7 +453,7 @@ export default function StudioLanding() {
 />
         </Section>
                 {/* —— Cursos —— */}
-        <Section id="sec-4">
+        {SHOW_COURSES && <Section id="sec-4">
   <h2 className="text-3xl font-bold mb-8">Cursos</h2>
 
   <div className="rounded-2xl overflow-hidden border bg-white">
@@ -463,7 +466,7 @@ export default function StudioLanding() {
       className="w-full"
     />
   </div>
-</Section>
+</Section>}
   
 
         {/* —— EVENTOS —— */}
