@@ -116,37 +116,54 @@ function FituneEmbed({
   mobileWide?: boolean;
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLDivElement>(null);
   const [availableWidth, setAvailableWidth] = useState(0);
+  const [contentHeight, setContentHeight] = useState(0);
+  const virtualWidth = 520;
+
   useEffect(() => {
-    if (!mobileWide || !containerRef.current) return;
+    if (!mobileWide || !containerRef.current || !innerRef.current) return;
     const container = containerRef.current;
-    const measure = () => setAvailableWidth(container.clientWidth);
+    const inner = innerRef.current;
+    const measure = () => {
+      setAvailableWidth(container.clientWidth);
+      setContentHeight(inner.offsetHeight);
+    };
     measure();
     const observer = new ResizeObserver(measure);
     observer.observe(container);
+    observer.observe(inner);
     return () => observer.disconnect();
   }, [mobileWide]);
-  // Fitune event details need more horizontal space than narrow phones provide.
-  // CSS zoom scales layout and height together, including Fitune height updates.
-  const zoom = mobileWide && availableWidth > 0 && availableWidth < 500
-    ? availableWidth / 500 : 1;
+
+  // Use a real wider iframe viewport, then scale it exactly once to fit.
+  // Unlike CSS zoom, transform does not change the iframe's layout viewport.
+  const scaled = mobileWide && availableWidth > 0 && availableWidth < virtualWidth;
+  const scale = scaled ? availableWidth / virtualWidth : 1;
   return (
-    <div ref={containerRef} className={mobileWide ? "-mx-4 sm:mx-0 sm:rounded-2xl overflow-hidden sm:border bg-white shadow-sm" : "rounded-2xl overflow-hidden border bg-white shadow-sm"}>
-      <div style={zoom < 1 ? { width: 500, zoom } : undefined}>
-      <iframe
-        id={id}
-        title={title}
-        src={src}
-        width="100%"
-        frameBorder="0"
-        scrolling="yes"
-        className="block w-full"
-        style={{
-          height,
-          minHeight: height,
-          border: 0,
-        }}
-      />
+    <div
+      ref={containerRef}
+      className={mobileWide ? "-mx-4 sm:mx-0 sm:rounded-2xl overflow-hidden sm:border bg-white shadow-sm" : "rounded-2xl overflow-hidden border bg-white shadow-sm"}
+      style={scaled && contentHeight > 0 ? { height: Math.ceil(contentHeight * scale) } : undefined}
+    >
+      <div
+        ref={innerRef}
+        style={scaled ? { width: virtualWidth, transform: `scale(${scale})`, transformOrigin: "top left" } : undefined}
+      >
+        <iframe
+          id={id}
+          title={title}
+          src={src}
+          width={scaled ? virtualWidth : "100%"}
+          frameBorder="0"
+          scrolling="yes"
+          className={scaled ? "block !w-[520px] !min-w-[520px] !max-w-none" : "block w-full"}
+          style={{
+            height,
+            minHeight: height,
+            border: 0,
+          }}
+        />
       </div>
     </div>
   );
