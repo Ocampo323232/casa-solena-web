@@ -79,7 +79,7 @@ type SectionProps = {
 
 function Section({ id, children }: SectionProps) {
   return (
-    <section id={id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section id={id} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-16">
       {children}
     </section>
   );
@@ -129,6 +129,34 @@ function FituneEmbed({
     </div>
   );
 }
+function AnniversaryBanner() {
+  const [visible, setVisible] = useState(false);
+  const storageKey = "solena-anniversary-2026-dismissed";
+  useEffect(() => {
+    if (Date.now() >= Date.parse("2026-12-07T00:00:00-06:00")) return;
+    try {
+      if (sessionStorage.getItem(storageKey)) return;
+    } catch {}
+    setVisible(true);
+  }, []);
+  function dismiss() {
+    setVisible(false);
+    try { sessionStorage.setItem(storageKey, "1"); } catch {}
+  }
+  if (!visible) return null;
+  return (
+    <aside aria-label="Aniversario de Casa Solena" className="fixed bottom-20 right-3 left-3 sm:left-auto sm:right-5 sm:w-[380px] z-50 overflow-hidden rounded-2xl shadow-2xl border border-[#d6a777] bg-[#733818] text-[#fff4dc]">
+      <a href="#sec-3" onClick={dismiss} className="block px-6 py-5 pr-11 text-center focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white" style={{background: "radial-gradient(ellipse at 15% 0%, #b96b35, transparent 70%), linear-gradient(135deg,#8e411e,#5d2e19)"}}>
+        <span className="block text-[10px] tracking-[0.28em] uppercase">Casa Solena · Un año de sol</span>
+        <span className="block mt-2 font-serif text-[28px] leading-tight">Anniversary Experience</span>
+        <span className="block mt-2 text-sm tracking-wide">5 y 6 de diciembre · $380 MXN</span>
+        <span className="mt-4 inline-flex items-center justify-center rounded-full bg-[#f9dfa1] text-[#58321f] px-5 py-2.5 text-sm font-semibold">Reserva tu lugar <ChevronRight className="w-4 h-4 ml-1" /></span>
+      </a>
+      <button type="button" onClick={dismiss} aria-label="Cerrar anuncio de aniversario" className="absolute top-2 right-2 rounded-full bg-black/30 text-white w-9 h-9 flex items-center justify-center hover:bg-black/50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-white"><X className="w-5 h-5" /></button>
+    </aside>
+  );
+}
+
 export default function StudioLanding() {
   const [lang] = useState<"es">("es");
   const [menuOpen, setMenuOpen] = useState(false);
@@ -577,6 +605,7 @@ export default function StudioLanding() {
         </footer>
 
         {!menuOpen && <StickyWhatsApp label={t.ctaWhats} />}
+        {!menuOpen && <AnniversaryBanner />}
       </div>
     </MotionConfig>
   );
