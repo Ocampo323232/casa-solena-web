@@ -1,5 +1,4 @@
 import "./globals.css";
-import Script from "next/script";
 
 export const metadata = {
   title: "Casa Solena",
@@ -9,14 +8,10 @@ export const metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es">
-      <body>
-        <Script
-          id="zoho-marketing-automation"
-          src="https://cdn.pagesense.io/js/casasolena/a45b8238c7bf464a8dbe12e7d3f398c3.js"
-          strategy="beforeInteractive"
-        />
-        {children}
-      </body>
+      <head>
+        <script src="https://cdn.pagesense.io/js/casasolena/a45b8238c7bf464a8dbe12e7d3f398c3.js" async></script>
+      </head>
+      <body>{children}</body>
     </html>
   );
 }
